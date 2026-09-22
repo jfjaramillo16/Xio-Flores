@@ -145,14 +145,26 @@
                     <path d="M280,320 C340,300 370,340 350,380 C320,380 290,360 270,340 Z" />
                 </g>
 
-                <!-- Girasoles ensamblados en el ramo -->
+                <!-- Girasoles ensamblados en el ramo con posiciones estables -->
                 <g class="sunflowers-cluster">
-                    <use href="#single-sunflower" transform="translate(250, 115) scale(0.85)" class="bloom b1" />
-                    <use href="#single-sunflower" transform="translate(155, 195) scale(0.9)" class="bloom b2" />
-                    <use href="#single-sunflower" transform="translate(345, 195) scale(0.9)" class="bloom b3" />
-                    <use href="#single-sunflower" transform="translate(195, 295) scale(0.95)" class="bloom b4" />
-                    <use href="#single-sunflower" transform="translate(305, 295) scale(0.95)" class="bloom b5" />
-                    <use href="#single-sunflower" transform="translate(250, 235) scale(1.08)" class="bloom b-center" />
+                    <g transform="translate(250, 115)">
+                        <use href="#single-sunflower" class="bloom b1" transform="scale(0.85)" />
+                    </g>
+                    <g transform="translate(155, 195)">
+                        <use href="#single-sunflower" class="bloom b2" transform="scale(0.9)" />
+                    </g>
+                    <g transform="translate(345, 195)">
+                        <use href="#single-sunflower" class="bloom b3" transform="scale(0.9)" />
+                    </g>
+                    <g transform="translate(195, 295)">
+                        <use href="#single-sunflower" class="bloom b4" transform="scale(0.95)" />
+                    </g>
+                    <g transform="translate(305, 295)">
+                        <use href="#single-sunflower" class="bloom b5" transform="scale(0.95)" />
+                    </g>
+                    <g transform="translate(250, 235)">
+                        <use href="#single-sunflower" class="bloom b-center" transform="scale(1.08)" />
+                    </g>
                 </g>
 
                 <!-- Lazo Rojo y Cinta del ramo -->
@@ -177,7 +189,7 @@
             </button>
         </div>
 
-        <!-- Elemento de audio para "Flores Amarillas" -->
+        <!-- Elemento de audio -->
         <audio id="bg-music" src="flores-amarillas.mp3" preload="auto" loop></audio>
     </main>
 

@@ -115,64 +115,63 @@ body {
     filter: drop-shadow(0 15px 25px rgba(0, 0, 0, 0.65));
 }
 
-/* Animaciones sutiles de mecida */
+/* Animaciones sutiles de mecida en el propio eje del girasol */
+.bloom {
+    transform-box: fill-box;
+    transform-origin: center center;
+}
+
 .b1 {
     animation: sway1 5s ease-in-out infinite alternate;
-    transform-origin: 250px 115px;
 }
 
 .b2 {
     animation: sway2 6s ease-in-out infinite alternate;
-    transform-origin: 155px 195px;
 }
 
 .b3 {
     animation: sway1 5.5s ease-in-out infinite alternate-reverse;
-    transform-origin: 345px 195px;
 }
 
 .b4 {
     animation: sway2 4.8s ease-in-out infinite alternate;
-    transform-origin: 195px 295px;
 }
 
 .b5 {
     animation: sway1 6.2s ease-in-out infinite alternate;
-    transform-origin: 305px 295px;
 }
 
 .b-center {
     animation: swayCenter 4s ease-in-out infinite alternate;
-    transform-origin: 250px 235px;
 }
 
 @keyframes sway1 {
     0% {
-        transform: rotate(-2.5deg);
+        transform: rotate(-3deg);
     }
 
     100% {
-        transform: rotate(2.5deg);
+        transform: rotate(3deg);
     }
 }
 
 @keyframes sway2 {
     0% {
-        transform: rotate(3deg);
+        transform: rotate(4deg);
     }
 
     100% {
-        transform: rotate(-3deg);
+        transform: rotate(-4deg);
     }
 }
 
 @keyframes swayCenter {
     0% {
-        transform: scale(1.05) rotate(-1deg);
+        transform: scale(1.05) rotate(-1.5deg);
     }
 
     100% {
-        transform: scale(1.08) rotate(1.5deg);
+        transform: scale(1.1) rotate(1.5deg);
     }
 }
 
@@ -197,7 +196,6 @@ body {
     cursor: pointer;
     outline: none;
     border: none;
-    pointer-events: auto;
     transition: all 0.3s ease;
     backdrop-filter: blur(8px);
 }
