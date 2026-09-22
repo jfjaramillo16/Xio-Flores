@@ -147,22 +147,16 @@
 
                 <!-- Girasoles ensamblados en el ramo -->
                 <g class="sunflowers-cluster">
-                    <!-- Girasol Superior Central -->
                     <use href="#single-sunflower" x="250" y="115" transform="scale(0.85) translate(45, 20)"
                         class="bloom b1" />
-                    <!-- Izquierda Arriba -->
                     <use href="#single-sunflower" x="155" y="195" transform="scale(0.9) translate(15, 20)"
                         class="bloom b2" />
-                    <!-- Derecha Arriba -->
                     <use href="#single-sunflower" x="345" y="195" transform="scale(0.9) translate(-5, 20)"
                         class="bloom b3" />
-                    <!-- Izquierda Abajo -->
                     <use href="#single-sunflower" x="195" y="295" transform="scale(0.95) translate(10, 15)"
                         class="bloom b4" />
-                    <!-- Derecha Abajo -->
                     <use href="#single-sunflower" x="305" y="295" transform="scale(0.95) translate(-5, 15)"
                         class="bloom b5" />
-                    <!-- Girasol Principal Central -->
                     <use href="#single-sunflower" x="250" y="235" transform="scale(1.08) translate(-18, -18)"
                         class="bloom b-center" />
                 </g>
@@ -170,11 +164,9 @@
                 <!-- Lazo Rojo y Cinta del ramo -->
                 <g class="ribbon" fill="url(#ribbonGrad)" filter="url(#soft-shadow)">
                     <path d="M215,485 Q250,505 285,485 Q265,515 250,520 Q235,515 215,485 Z" />
-                    <!-- Orejas del Moño -->
                     <path d="M250,495 C220,455 180,480 215,505 C235,510 245,500 250,495 Z" />
                     <path d="M250,495 C280,455 320,480 285,505 C265,510 255,500 250,495 Z" />
                     <circle cx="250" cy="500" r="11" fill="#BE123C" />
-                    <!-- Tiras de la cinta -->
                     <path d="M245,510 Q235,560 210,600 Q225,580 248,520 Z" fill="#9F1239" />
                     <path d="M255,510 Q265,560 290,600 Q275,580 252,520 Z" fill="#9F1239" />
                 </g>
@@ -183,17 +175,16 @@
 
         <!-- Botones de Acción -->
         <div class="actions">
-            <button id="btn-letter" class="action-btn primary">
+            <button id="btn-letter" type="button" class="action-btn primary">
                 <span class="btn-icon">💌</span> Abrir Cartita
             </button>
-            <button id="btn-audio" class="action-btn secondary">
+            <button id="btn-audio" type="button" class="action-btn secondary">
                 <span class="btn-icon">🎵</span> <span id="audio-label">Reproducir Canción</span>
             </button>
         </div>
-        
+
         <!-- Elemento de audio para "Flores Amarillas" -->
         <audio id="bg-music" src="flores-amarillas.mp3" preload="auto" loop></audio>
-        </main>
     </main>
 
     <!-- Modal con la Cartita -->

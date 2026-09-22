@@ -9,7 +9,6 @@
     --gold-glow: rgba(255, 193, 7, 0.45);
     --yellow-main: #ffca28;
     --text-primary: #fff8e7;
-    --text-muted: #e0cfb8;
 }
 
 body {
@@ -24,7 +23,7 @@ body {
     align-items: center;
 }
 
-/* Canvas interactivo de fondo */
+/* Canvas de fondo */
 #canvas-bg {
     position: fixed;
     top: 0;
@@ -48,7 +47,6 @@ body {
     width: 100%;
 }
 
-/* Header */
 .header {
     text-align: center;
     margin-bottom: 0.5rem;
@@ -60,7 +58,6 @@ body {
     letter-spacing: 3px;
     color: var(--yellow-main);
     opacity: 0.9;
-    font-weight: 400;
 }
 
 .title {
@@ -73,7 +70,7 @@ body {
     margin-top: 0.2rem;
 }
 
-/* Escenario del Ramo de Flores */
+/* Ramo */
 .bouquet-stage {
     position: relative;
     width: 100%;
@@ -89,7 +86,6 @@ body {
     transform: scale(1.03);
 }
 
-/* Resplandor suave detrás */
 .sunflower-glow {
     position: absolute;
     width: 320px;
@@ -113,19 +109,13 @@ body {
     }
 }
 
-/* SVG del Ramo */
 .bouquet-svg {
     width: 100%;
     height: auto;
     filter: drop-shadow(0 15px 25px rgba(0, 0, 0, 0.65));
 }
 
-/* Animaciones sutiles de mecida para los girasoles */
-.bloom {
-    transform-origin: center;
-    transition: transform 0.3s ease;
-}
-
+/* Animaciones sutiles de mecida */
 .b1 {
     animation: sway1 5s ease-in-out infinite alternate;
     transform-origin: 250px 115px;
@@ -191,7 +181,8 @@ body {
     display: flex;
     gap: 1.2rem;
     margin-top: 1.8rem;
-    z-index: 5;
+    position: relative;
+    z-index: 50;
 }
 
 .action-btn {
@@ -206,6 +197,7 @@ body {
     cursor: pointer;
     outline: none;
     border: none;
+    pointer-events: auto;
     transition: all 0.3s ease;
     backdrop-filter: blur(8px);
 }
@@ -219,7 +211,6 @@ body {
 .action-btn.primary:hover {
     transform: translateY(-2px);
     box-shadow: 0 6px 25px rgba(245, 158, 11, 0.6);
-    background: linear-gradient(135deg, #ffd54f, #fbbf24);
 }
 
 .action-btn.secondary {
@@ -243,14 +234,16 @@ body {
     align-items: center;
     justify-content: center;
     opacity: 0;
+    visibility: hidden;
     pointer-events: none;
-    transition: opacity 0.4s ease;
-    z-index: 100;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    z-index: 9999;
     padding: 1.5rem;
 }
 
 .modal-overlay.open {
     opacity: 1;
+    visibility: visible;
     pointer-events: auto;
 }
 
@@ -262,7 +255,7 @@ body {
     border-radius: 18px;
     padding: 2.8rem 2.2rem 2.2rem;
     position: relative;
-    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(255, 224, 130, 0.3);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
     transform: scale(0.85) translateY(20px);
     transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
@@ -281,11 +274,6 @@ body {
     color: #8c7b6c;
     cursor: pointer;
     line-height: 1;
-    transition: color 0.2s;
-}
-
-.close-btn:hover {
-    color: #d97706;
 }
 
 .letter-stamp {
@@ -328,7 +316,7 @@ body {
     position: fixed;
     font-size: 1.4rem;
     pointer-events: none;
-    z-index: 999;
+    z-index: 99999;
     animation: float-up-heart 1.2s forwards cubic-bezier(0.2, 0.8, 0.3, 1);
 }
 
@@ -344,7 +332,6 @@ body {
     }
 }
 
-/* Responsive */
 @media (max-width: 480px) {
     .title {
         font-size: 3.5rem;
