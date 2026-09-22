@@ -192,12 +192,6 @@ function playNextChord() {
 }
 
 function toggleAudio() {
-    if (!isPlaying) {
-        if (!audioCtx) {
-            audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-        }
-        if (audioCtx.state === 'suspended') {
-            audioCtx.resume();
         }
         isPlaying = true;
         audioLabel.textContent = "Pausar";
