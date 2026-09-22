@@ -26,7 +26,7 @@ jobs:
   deploy:
     environment:
       name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+      url: ${{ steps.deployment.outputs.page_url || steps.deployment_first.outputs.page_url }}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -39,5 +39,10 @@ jobs:
           # Upload entire repository
           path: '.'
       - name: Deploy to GitHub Pages
+        id: deployment_first
+        continue-on-error: true
+        uses: actions/deploy-pages@v4
+      - name: Retry deploy to GitHub Pages
+        if: steps.deployment_first.outcome == 'failure'
         id: deployment
         uses: actions/deploy-pages@v4
