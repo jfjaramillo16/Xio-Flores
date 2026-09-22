@@ -1,0 +1,360 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --bg-gradient: radial-gradient(circle at 50% 20%, #2b1f14 0%, #150f0b 50%, #080605 100%);
+    --gold-glow: rgba(255, 193, 7, 0.45);
+    --yellow-main: #ffca28;
+    --text-primary: #fff8e7;
+    --text-muted: #e0cfb8;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: var(--bg-gradient);
+    min-height: 100vh;
+    color: var(--text-primary);
+    overflow-x: hidden;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Canvas interactivo de fondo */
+#canvas-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* Contenedor central */
+.main-container {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2.5rem 1rem;
+    max-width: 600px;
+    width: 100%;
+}
+
+/* Header */
+.header {
+    text-align: center;
+    margin-bottom: 0.5rem;
+}
+
+.subtitle {
+    font-size: 0.95rem;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: var(--yellow-main);
+    opacity: 0.9;
+    font-weight: 400;
+}
+
+.title {
+    font-family: 'Great Vibes', cursive;
+    font-size: 4.5rem;
+    font-weight: 400;
+    color: #fff2c6;
+    text-shadow: 0 0 20px rgba(255, 202, 40, 0.6), 0 0 40px rgba(255, 179, 0, 0.3);
+    line-height: 1.1;
+    margin-top: 0.2rem;
+}
+
+/* Escenario del Ramo de Flores */
+.bouquet-stage {
+    position: relative;
+    width: 100%;
+    max-width: 440px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.bouquet-stage:hover {
+    transform: scale(1.03);
+}
+
+/* Resplandor suave detrás */
+.sunflower-glow {
+    position: absolute;
+    width: 320px;
+    height: 320px;
+    border-radius: 50%;
+    background: radial-gradient(circle, var(--gold-glow) 0%, rgba(255, 160, 0, 0) 70%);
+    filter: blur(25px);
+    z-index: -1;
+    animation: pulse-glow 4s ease-in-out infinite alternate;
+}
+
+@keyframes pulse-glow {
+    0% {
+        transform: scale(0.9);
+        opacity: 0.5;
+    }
+
+    100% {
+        transform: scale(1.15);
+        opacity: 0.85;
+    }
+}
+
+/* SVG del Ramo */
+.bouquet-svg {
+    width: 100%;
+    height: auto;
+    filter: drop-shadow(0 15px 25px rgba(0, 0, 0, 0.65));
+}
+
+/* Animaciones sutiles de mecida para los girasoles */
+.bloom {
+    transform-origin: center;
+    transition: transform 0.3s ease;
+}
+
+.b1 {
+    animation: sway1 5s ease-in-out infinite alternate;
+    transform-origin: 250px 115px;
+}
+
+.b2 {
+    animation: sway2 6s ease-in-out infinite alternate;
+    transform-origin: 155px 195px;
+}
+
+.b3 {
+    animation: sway1 5.5s ease-in-out infinite alternate-reverse;
+    transform-origin: 345px 195px;
+}
+
+.b4 {
+    animation: sway2 4.8s ease-in-out infinite alternate;
+    transform-origin: 195px 295px;
+}
+
+.b5 {
+    animation: sway1 6.2s ease-in-out infinite alternate;
+    transform-origin: 305px 295px;
+}
+
+.b-center {
+    animation: swayCenter 4s ease-in-out infinite alternate;
+    transform-origin: 250px 235px;
+}
+
+@keyframes sway1 {
+    0% {
+        transform: rotate(-2.5deg);
+    }
+
+    100% {
+        transform: rotate(2.5deg);
+    }
+}
+
+@keyframes sway2 {
+    0% {
+        transform: rotate(3deg);
+    }
+
+    100% {
+        transform: rotate(-3deg);
+    }
+}
+
+@keyframes swayCenter {
+    0% {
+        transform: scale(1.05) rotate(-1deg);
+    }
+
+    100% {
+        transform: scale(1.08) rotate(1.5deg);
+    }
+}
+
+/* Botones */
+.actions {
+    display: flex;
+    gap: 1.2rem;
+    margin-top: 1.8rem;
+    z-index: 5;
+}
+
+.action-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.85rem 1.6rem;
+    border-radius: 50px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 500;
+    cursor: pointer;
+    outline: none;
+    border: none;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(8px);
+}
+
+.action-btn.primary {
+    background: linear-gradient(135deg, #ffca28, #f59e0b);
+    color: #1a120b;
+    box-shadow: 0 4px 20px rgba(245, 158, 11, 0.4);
+}
+
+.action-btn.primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 25px rgba(245, 158, 11, 0.6);
+    background: linear-gradient(135deg, #ffd54f, #fbbf24);
+}
+
+.action-btn.secondary {
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.action-btn.secondary:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
+}
+
+/* Modal / Carta */
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.75);
+    backdrop-filter: blur(6px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.4s ease;
+    z-index: 100;
+    padding: 1.5rem;
+}
+
+.modal-overlay.open {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.letter-card {
+    background: #fdfbf7;
+    color: #2e261f;
+    max-width: 460px;
+    width: 100%;
+    border-radius: 18px;
+    padding: 2.8rem 2.2rem 2.2rem;
+    position: relative;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(255, 224, 130, 0.3);
+    transform: scale(0.85) translateY(20px);
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.modal-overlay.open .letter-card {
+    transform: scale(1) translateY(0);
+}
+
+.close-btn {
+    position: absolute;
+    top: 15px;
+    right: 18px;
+    background: none;
+    border: none;
+    font-size: 1.8rem;
+    color: #8c7b6c;
+    cursor: pointer;
+    line-height: 1;
+    transition: color 0.2s;
+}
+
+.close-btn:hover {
+    color: #d97706;
+}
+
+.letter-stamp {
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 0.5rem;
+}
+
+.letter-content h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    text-align: center;
+    color: #78350f;
+    margin-bottom: 1.2rem;
+}
+
+.letter-content .greeting {
+    font-weight: 600;
+    margin-bottom: 0.8rem;
+    color: #92400e;
+}
+
+.letter-content p {
+    font-size: 0.98rem;
+    line-height: 1.65;
+    color: #4b3e34;
+    margin-bottom: 1rem;
+}
+
+.letter-content .signature {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    text-align: right;
+    margin-top: 1.4rem;
+    color: #b45309;
+}
+
+/* Efecto de clic / chispa */
+.click-heart {
+    position: fixed;
+    font-size: 1.4rem;
+    pointer-events: none;
+    z-index: 999;
+    animation: float-up-heart 1.2s forwards cubic-bezier(0.2, 0.8, 0.3, 1);
+}
+
+@keyframes float-up-heart {
+    0% {
+        transform: translate(-50%, -50%) scale(0.5);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translate(-50%, -120px) scale(1.4);
+        opacity: 0;
+    }
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+    .title {
+        font-size: 3.5rem;
+    }
+
+    .bouquet-stage {
+        max-width: 320px;
+    }
+
+    .letter-card {
+        padding: 2.2rem 1.5rem 1.8rem;
+    }
+}
