@@ -145,4 +145,38 @@ document.addEventListener('DOMContentLoaded', () => {
         }
         animate();
     }
+    // Obtén la referencia al inicio junto a los otros elementos:
+    const musicFlower = document.getElementById('music-flower');
+
+    // Modifica toggleMusic para alternar la clase:
+    function toggleMusic() {
+        if (!bgMusic) return;
+
+        if (!isPlaying) {
+            bgMusic.play()
+                .then(() => {
+                    isPlaying = true;
+                    if (audioLabel) audioLabel.textContent = "Pausar Canción";
+                    if (btnAudio) {
+                        btnAudio.style.background = "rgba(255, 202, 40, 0.35)";
+                        btnAudio.style.borderColor = "#ffca28";
+                    }
+                    // Mostrar la flor
+                    if (musicFlower) musicFlower.classList.add('active');
+                })
+                .catch(err => {
+                    console.warn("Autoplay bloqueado o archivo no encontrado:", err);
+                });
+        } else {
+            bgMusic.pause();
+            isPlaying = false;
+            if (audioLabel) audioLabel.textContent = "Reproducir Canción";
+            if (btnAudio) {
+                btnAudio.style.background = "rgba(255, 255, 255, 0.1)";
+                btnAudio.style.borderColor = "rgba(255, 255, 255, 0.2)";
+            }
+            // Ocultar la flor al pausar
+            if (musicFlower) musicFlower.classList.remove('active');
+        }
+    }
 });
